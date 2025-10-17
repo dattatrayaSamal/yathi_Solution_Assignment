@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
-const menuRoutes = require("./routes/menuRoute");
+const mealRoutes = require("./routes/mealRoutes");
 const orderRoutes = require("./routes/orderRoute");
 
 const app = express();
@@ -12,8 +12,8 @@ mongoose
   .then(() => console.log("Mongodb Connected"))
   .catch((err) => console.log("Disconnected", err));
 
-app.use("/menu", menuRoutes);
-app.use("/order", orderRoutes);
+app.use("/meals", mealRoutes);
+app.use("/orders", orderRoutes);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
